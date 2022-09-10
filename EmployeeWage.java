@@ -5,25 +5,30 @@ public class EmployeeWage {
 	public static final int Emp_present = 1;
 	public static final int Half_time = 2;
 	public static final int Wage_per_hour = 20;
+	public static final int Num_of_working_days = 20;
 
 	public static void main(String[] args) {
 
-		int Emp_hour = 0;
+		int empHrs = 0, empWage = 0, totalEmpWage = 0;
+		for (int days = 0; days < Num_of_working_days; days++) {
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
-		int empcheck = (int) Math.floor(Math.random() * 10) % 3;
-		switch (empcheck) {
-		case Emp_present:
-			Emp_hour = 8;
-			break;
-		case Half_time:
-			Emp_hour = 4;
-			break;
-		default:
-			Emp_hour = 0;
+			switch (empCheck) {
+			case Emp_present:
+				empHrs = 4;
+				break;
+			case Half_time:
+				empHrs = 8;
+				break;
+			default:
+				empHrs = 0;
+			}
+
+			empWage = empHrs * Wage_per_hour;
+			totalEmpWage += empWage;
+			System.out.println("Total_Salary :" + empWage);
 		}
-		int Total_Salary = Wage_per_hour * Emp_hour;
-		System.out.println("Total_Salary :" + Total_Salary);
-
+		System.out.println("Total Emp Wage: " + totalEmpWage);
 	}
 
 }
